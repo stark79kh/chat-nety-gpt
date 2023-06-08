@@ -1,4 +1,30 @@
 .App {
+    // hiệu ứng xoay vòng
+    @-webkit-keyframes turnAround {
+        from {
+            -webkit-transform:rotate(0deg);
+            -moz-transform:rotate(0deg);
+            -o-transform:rotate(0deg);
+        }
+        to {
+            -webkit-transform:rotate(360deg);
+            -moz-transform:rotate(360deg);
+            -o-transform:rotate(360deg);
+        }
+    }
+    /* Standard syntax */ 
+    @keyframes turnAround {
+        from {
+            -webkit-transform:rotate(0deg);
+            -moz-transform:rotate(0deg);
+            -o-transform:rotate(0deg);
+        }
+        to {
+            -webkit-transform:rotate(360deg);
+            -moz-transform:rotate(360deg);
+            -o-transform:rotate(360deg);
+        }
+    }
     .container {
         background-color: rgb(68, 70, 84);
         .Login {
@@ -29,6 +55,14 @@
                     font-size: 100%;
                     column-gap: 1rem;
                     cursor: pointer;
+                    &_icon {
+                        width: 30px;
+                        height: 24px;
+                        animation: turnAround 2s linear 0s infinite;
+                        -webkit-animation: turnAround 2s linear 0s infinite;
+                        -moz-animation: turnAround 2s linear 0s infinite;
+                        -o-animation: turnAround 2s linear 0s infinite; 
+                    }
                 }
                 &_hr {
                     width: 100%;

@@ -4,7 +4,7 @@ import {
   Outlet
 } from "react-router-dom";
 import Login from "./page/Login";
-import Home from "./page/Home";
+import Chat from "./page/Chat";
 import './styles.scss'
 
 const Layout = () => {
@@ -23,12 +23,12 @@ const router = createBrowserRouter([
     element: <Login/>,
   },
   {
-    path: "/home",
+    path: "/chat",
     element: <Layout/>,
     children: [
       {
-        path: "/home",
-        element: <Home/>,
+        path: "/chat",
+        element: <Chat/>,
       }
     ]
   }
