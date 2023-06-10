@@ -2,22 +2,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from "react-router-dom";
 
 const Chat = () => {
+  //get id
   const location = useLocation();
   const chatId = location.pathname.split("/")[2];
 
+  // click btn new chat
   const handClickNewChat = () => {
     window.location.href = '/';
   }
-  const [message, setMessage] = useState();
-  console.log(message)
 
+  // resize height text area
+  const [message, setMessage] = useState('');
   const textAreaRef = useRef(null);
-
   const resizeTextArea = () => {
     textAreaRef.current.style.height = "50px";
     textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
   };
-
   useEffect(resizeTextArea, [message]);
 
   return (
