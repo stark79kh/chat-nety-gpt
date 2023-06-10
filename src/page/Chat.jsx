@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from "react-router-dom";
 
 const Chat = () => {
@@ -8,6 +8,17 @@ const Chat = () => {
   const handClickNewChat = () => {
     window.location.href = '/';
   }
+  const [message, setMessage] = useState();
+  console.log(message)
+
+  const textAreaRef = useRef(null);
+
+  const resizeTextArea = () => {
+    textAreaRef.current.style.height = "50px";
+    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
+  };
+
+  useEffect(resizeTextArea, [message]);
 
   return (
     <div className='Chatbox'>
@@ -20,7 +31,12 @@ const Chat = () => {
       </div>
       <div className='Chatbox_chat'>
         <div className='Chatbox_chat_box'>
-          <textarea placeholder='Send a message'/>
+          <textarea
+            ref={textAreaRef}
+            value={message}
+            placeholder='Send a message'
+            onChange={e => setMessage(e.target.value)}
+          />
           <button>
             <img width={24} height={24} src="/send-icon.svg" alt="" />
           </button>
